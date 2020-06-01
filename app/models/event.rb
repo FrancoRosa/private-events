@@ -1,3 +1,13 @@
 class Event < ApplicationRecord
-  belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
-end
+  belongs_to :creator, class_name: 'User', foreign_key: :user_id
+  
+  has_many :invitations, foreign_key: :events_invited_id
+  has_many :attendees, through: :invitations, source: :attendee
+end 
+
+# class Post < ActiveRecord::Base
+#   belongs_to :editor, class_name: "User"
+
+#   has_many :post_authorings, foreign_key: :authored_post_id
+#   has_many :authors, through: :post_authorings, source: :post_author
+# end
