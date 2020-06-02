@@ -4,6 +4,11 @@ class User < ApplicationRecord
   has_many :invitations, foreign_key: :attendee_id
   has_many :events_invited, through: :invitations
   validates :name, presence: true, uniqueness: true
+
+  def self.rname
+    Faker::Name.first_name
+  end
+
 end
 
 # class User < ActiveRecord::Base

@@ -11,17 +11,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form_for @event do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <%= f.submit %>
+  <% end %>
 <% end %>

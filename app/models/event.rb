@@ -4,6 +4,15 @@ class Event < ApplicationRecord
   has_many :invitations, foreign_key: :events_invited_id
   has_many :attendees, through: :invitations, source: :attendee
   validates :title, presence: true, uniqueness: true
+
+  def self.rforward
+    Faker::Date.forward(days:rand(10))
+  end
+
+  def self.rbackward
+    Faker::Date.backward(days:rand(10))
+  end
+
 end 
 
 # class Post < ActiveRecord::Base
