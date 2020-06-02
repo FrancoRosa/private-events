@@ -3,6 +3,7 @@ class User < ApplicationRecord
   
   has_many :invitations, foreign_key: :attendee_id
   has_many :events_invited, through: :invitations
+  validates :name, presence: true, uniqueness: true
 end
 
 # class User < ActiveRecord::Base

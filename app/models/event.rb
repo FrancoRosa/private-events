@@ -3,6 +3,7 @@ class Event < ApplicationRecord
   
   has_many :invitations, foreign_key: :events_invited_id
   has_many :attendees, through: :invitations, source: :attendee
+  validates :title, presence: true, uniqueness: true
 end 
 
 # class Post < ActiveRecord::Base
